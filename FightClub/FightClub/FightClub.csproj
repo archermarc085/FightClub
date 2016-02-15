@@ -124,6 +124,7 @@
     <None Include="Resources\bot.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\FC.rtf" />
     <None Include="Resources\fight.gif" />
   </ItemGroup>
   <ItemGroup>
