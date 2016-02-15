@@ -19,8 +19,11 @@ namespace FightClub
 
         private void InformationForm_Load(object sender, EventArgs e)
         {
-            string path = Application.StartupPath + "\\" + "FC.rtf";
-            richTextBox1.LoadFile(path);
+            string path = Application.StartupPath;
+            string filepath = path.Replace(@"\bin\Debug", "");
+            string folder = @"\Resources\FC.rtf";
+            string fullpath = filepath + folder;
+            richTextBox1.LoadFile(fullpath);
         }
     }
 }
