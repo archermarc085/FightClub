@@ -47,13 +47,13 @@ namespace FightClub
         {
             if (player.HP == 0 || npc.HP == 0)
             {
-                playerBlockedRadioButtonHead.AutoCheck = false;
-                playerBlockedRadioButtonBody.AutoCheck = false;
-                playerBlockedRadioButtonLegs.AutoCheck = false;
-                playerRadioButtonHead.AutoCheck = false;
-                playerRadioButtonBody.AutoCheck = false;
-                playerRadioButtonLegs.AutoCheck = false;
-                fightButton.Visible = false;
+                 playerBlockedRadioButtonHead.AutoCheck = false;
+                 playerBlockedRadioButtonBody.AutoCheck = false;
+                 playerBlockedRadioButtonLegs.AutoCheck = false;
+                 playerRadioButtonHead.AutoCheck = false;
+                 playerRadioButtonBody.AutoCheck = false;
+                 playerRadioButtonLegs.AutoCheck = false;
+                 fightButton.Visible = false;
             }
         }
 
@@ -96,6 +96,14 @@ namespace FightClub
         public void Reset()
         {
             listBox1.Items.Clear();
+            fightButton.Visible = true;
+            playerBlockedRadioButtonHead.AutoCheck = true;
+            playerBlockedRadioButtonBody.AutoCheck = true;
+            playerBlockedRadioButtonLegs.AutoCheck = true;
+            playerRadioButtonHead.AutoCheck = true;
+            playerRadioButtonBody.AutoCheck = true;
+            playerRadioButtonLegs.AutoCheck = true;
+
             player.HP = 100;
             npc.HP = 100;
             UpdateHP();
