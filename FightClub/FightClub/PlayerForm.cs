@@ -15,6 +15,7 @@ namespace FightClub
         public PlayerForm()
         {
             InitializeComponent();
+            pictureBox1.Image = FightClub.Properties.Resources.fight;
         }
 
         private void button1_Click(object sender, EventArgs e)

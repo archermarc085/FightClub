@@ -11,6 +11,10 @@ namespace FightClub
         public string Name { get; set; }
         abstract public int Damage { get; set; }
         abstract public int HP { get; set; }
+        public int Hit { get; set; }
+        public int Set { get; set; }
+        public string log { get; set; }
+        public int Win { get; set; }
         abstract public int GetHit(Parts part);
         abstract public int SetBlock(Parts part);
         abstract public event GameForceHandler Wound;

@@ -10,9 +10,12 @@ namespace FightClub
     public delegate void GameForceHandler(object sender, GameEventArgs e);
     interface IPlayer
     {
-        int Damage { get; set; }
         int HP { get; set; }
+        string log { get; set; }
+        int Damage { get; set; }
         string Name { get; set; }
+        int Hit { get; set; }
+        int Set { get; set; }
         int GetHit(Parts part);
         int SetBlock(Parts part);
         event GameForceHandler Wound;

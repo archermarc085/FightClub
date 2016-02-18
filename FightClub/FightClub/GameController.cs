@@ -9,19 +9,21 @@ namespace FightClub
     class GameController
     {
         Random rand = new Random();
-        Player user = new Player();
-        NPC comp = new NPC();
-        public int Hit { get; set; }
-        public int Set { get; set; }
+        IPlayer user = new Player();
+        IPlayer bot = new NPC();
 
-        public GameController(Player user, NPC comp)
+        public GameController(IPlayer user, IPlayer bot)
         {
             this.user = user;
-            this.comp = comp;
+            this.bot = bot;
+
+        }
+        public void Battle()
+        {
             user.SetBlock((Parts)user.Set);
             user.GetHit((Parts)rand.Next(0, 3));
-            comp.SetBlock((Parts)rand.Next(0, 3));
-            comp.GetHit((Parts)user.Hit);
+            bot.SetBlock((Parts)rand.Next(0, 3));
+            bot.GetHit((Parts)user.Hit);
         }
     }
 }

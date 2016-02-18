@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FightClub
 {
-    class Player:AbstractPlayer
+    class Player:AbstractPlayer,ISave
     {
         int hp = 100;
         int damage = 5;
@@ -22,21 +22,11 @@ namespace FightClub
                 damage = value;
             }
         }
-
-        public int Hit { get; set; }
-        public int Set { get; set; }
-
         public override int HP
         {
             get { return hp; }
             set
             {
-                /*  if (value <= 0)
-                {
-                    hp = 0;
-                    if (Death != null)
-                        Death(Name, HP);
-                }*/
                 hp = value; 
             }
         }
@@ -47,20 +37,20 @@ namespace FightClub
                 if (hp - damage > 0)
                 {
                     hp -= damage;
-                    if (Wound!= null)
-                        Wound(this, new GameEventArgs("Bot wounded Player"));
+                    if (Wound != null)
+                        Wound(this, new GameEventArgs("Bot wounded"));
                 }
-               else
+                else
                 {
                     hp = 0;
                     if (Death != null)
-                        Death(this, new GameEventArgs("Player Died"));
+                        Death(this, new GameEventArgs("Died"));
                 }
             }
             if (block == (int)part)
             {
                 if (Block != null)
-                    Block(this, new GameEventArgs("Player Blocked"));
+                    Block(this, new GameEventArgs("Blocked"));
             }
             return hp;
         }
@@ -70,6 +60,7 @@ namespace FightClub
             block = (int)part;
             return block;
         }
+
 
         public override event GameForceHandler Wound;
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FightClub
 {
-    class NPC:AbstractPlayer
+    class NPC:AbstractPlayer,ISave
     {
         int hp = 100;
         int damage = 5;
@@ -28,12 +28,6 @@ namespace FightClub
             get { return hp; }
             set
             {
-             /*   if (value <= 0)
-                {
-                    hp = 0;
-                    if (Death != null)
-                        Death(Name, HP);
-                }*/
                 hp = value;
             }
         }
@@ -46,7 +40,7 @@ namespace FightClub
                 {
                     hp -= damage;
                     if (Wound != null)
-                        Wound(this, new GameEventArgs("Player wounded Bot"));
+                        Wound(this, new GameEventArgs("wounded Bot"));
                 }
                 else
                 {

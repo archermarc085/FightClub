@@ -15,6 +15,7 @@ namespace FightClub
         public BotForm()
         {
             InitializeComponent();
+            pictureBox1.Image = FightClub.Properties.Resources.bot;
         }
 
         private void button1_Click(object sender, EventArgs e)
