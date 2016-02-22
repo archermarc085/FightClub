@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace FightClub
 {
@@ -16,13 +17,12 @@ namespace FightClub
         {
             this.user = user;
             this.bot = bot;
-
         }
         public void Battle()
         {
-            user.SetBlock((Parts)user.Set);
-            user.GetHit((Parts)rand.Next(0, 3));
-            bot.SetBlock((Parts)rand.Next(0, 3));
+            bot.Hit = rand.Next(1, 4);
+            user.GetHit((Parts)bot.Hit);
+            bot.SetBlock((Parts)rand.Next(1, 4));
             bot.GetHit((Parts)user.Hit);
         }
     }

@@ -1,6 +1,6 @@
 ﻿namespace FightClub
 {
-    partial class MainForm
+    partial class LoginForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,10 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.enterButton = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.LvlBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.iLvlBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.iLvlBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // nameTextBox
@@ -53,17 +56,15 @@
             this.enterButton.UseVisualStyleBackColor = true;
             this.enterButton.Click += new System.EventHandler(this.enterButton_Click);
             // 
-            // comboBox1
+            // LvlBox
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Easy",
-            "Medium"});
-            this.comboBox1.Location = new System.Drawing.Point(39, 81);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 3;
+            this.LvlBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.LvlBox.FormattingEnabled = true;
+            this.LvlBox.Location = new System.Drawing.Point(39, 81);
+            this.LvlBox.Name = "LvlBox";
+            this.LvlBox.Size = new System.Drawing.Size(121, 21);
+            this.LvlBox.TabIndex = 3;
+            this.LvlBox.SelectedIndexChanged += new System.EventHandler(this.LvlBox_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -74,17 +75,23 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Select level of difficulty";
             // 
-            // MainForm
+            // iLvlBindingSource
+            // 
+            this.iLvlBindingSource.DataSource = typeof(FightClub.ILvl);
+            // 
+            // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(212, 158);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.LvlBox);
             this.Controls.Add(this.enterButton);
             this.Controls.Add(this.nameTextBox);
-            this.Name = "MainForm";
+            this.Name = "LoginForm";
             this.Text = "Welcome";
+            this.Load += new System.EventHandler(this.MainForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.iLvlBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -94,8 +101,9 @@
 
         private System.Windows.Forms.TextBox nameTextBox;
         private System.Windows.Forms.Button enterButton;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox LvlBox;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.BindingSource iLvlBindingSource;
     }
 }
 

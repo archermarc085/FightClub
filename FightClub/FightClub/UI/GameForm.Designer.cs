@@ -35,33 +35,34 @@
             this.userProgressBar = new System.Windows.Forms.ProgressBar();
             this.botProgressBar = new System.Windows.Forms.ProgressBar();
             this.fightButton = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.AttackBox = new System.Windows.Forms.GroupBox();
             this.label6 = new System.Windows.Forms.Label();
             this.playerRadioButtonLegs = new System.Windows.Forms.RadioButton();
             this.playerRadioButtonBody = new System.Windows.Forms.RadioButton();
             this.playerRadioButtonHead = new System.Windows.Forms.RadioButton();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.DefenseBox = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
             this.playerBlockedRadioButtonBody = new System.Windows.Forms.RadioButton();
             this.playerBlockedRadioButtonLegs = new System.Windows.Forms.RadioButton();
             this.playerBlockedRadioButtonHead = new System.Windows.Forms.RadioButton();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.restartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.informationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.logBox = new System.Windows.Forms.ListBox();
+            this.labelText = new System.Windows.Forms.Label();
+            this.labelText2 = new System.Windows.Forms.Label();
             this.userdamageLabel = new System.Windows.Forms.Label();
             this.botdamageLabel = new System.Windows.Forms.Label();
             this.buttonSave = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.recordsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
+            this.labelText3 = new System.Windows.Forms.Label();
+            this.labelText5 = new System.Windows.Forms.Label();
+            this.labelText4 = new System.Windows.Forms.Label();
+            this.labelText6 = new System.Windows.Forms.Label();
+            this.playerHitLabel = new System.Windows.Forms.Label();
+            this.playerBlockLabel = new System.Windows.Forms.Label();
+            this.botHitLabel = new System.Windows.Forms.Label();
+            this.botBlockLabel = new System.Windows.Forms.Label();
+            this.AttackBox.SuspendLayout();
+            this.DefenseBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -118,7 +119,7 @@
             // 
             // fightButton
             // 
-            this.fightButton.Location = new System.Drawing.Point(246, 202);
+            this.fightButton.Location = new System.Drawing.Point(257, 200);
             this.fightButton.Name = "fightButton";
             this.fightButton.Size = new System.Drawing.Size(75, 23);
             this.fightButton.TabIndex = 8;
@@ -126,17 +127,17 @@
             this.fightButton.UseVisualStyleBackColor = true;
             this.fightButton.Click += new System.EventHandler(this.fightButton_Click);
             // 
-            // groupBox1
+            // AttackBox
             // 
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.playerRadioButtonLegs);
-            this.groupBox1.Controls.Add(this.playerRadioButtonBody);
-            this.groupBox1.Controls.Add(this.playerRadioButtonHead);
-            this.groupBox1.Location = new System.Drawing.Point(187, 65);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(96, 120);
-            this.groupBox1.TabIndex = 14;
-            this.groupBox1.TabStop = false;
+            this.AttackBox.Controls.Add(this.label6);
+            this.AttackBox.Controls.Add(this.playerRadioButtonLegs);
+            this.AttackBox.Controls.Add(this.playerRadioButtonBody);
+            this.AttackBox.Controls.Add(this.playerRadioButtonHead);
+            this.AttackBox.Location = new System.Drawing.Point(187, 65);
+            this.AttackBox.Name = "AttackBox";
+            this.AttackBox.Size = new System.Drawing.Size(96, 120);
+            this.AttackBox.TabIndex = 14;
+            this.AttackBox.TabStop = false;
             // 
             // label6
             // 
@@ -180,17 +181,17 @@
             this.playerRadioButtonHead.Text = "Head";
             this.playerRadioButtonHead.UseVisualStyleBackColor = true;
             // 
-            // groupBox2
+            // DefenseBox
             // 
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.playerBlockedRadioButtonBody);
-            this.groupBox2.Controls.Add(this.playerBlockedRadioButtonLegs);
-            this.groupBox2.Controls.Add(this.playerBlockedRadioButtonHead);
-            this.groupBox2.Location = new System.Drawing.Point(280, 65);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(100, 120);
-            this.groupBox2.TabIndex = 16;
-            this.groupBox2.TabStop = false;
+            this.DefenseBox.Controls.Add(this.label5);
+            this.DefenseBox.Controls.Add(this.playerBlockedRadioButtonBody);
+            this.DefenseBox.Controls.Add(this.playerBlockedRadioButtonLegs);
+            this.DefenseBox.Controls.Add(this.playerBlockedRadioButtonHead);
+            this.DefenseBox.Location = new System.Drawing.Point(312, 65);
+            this.DefenseBox.Name = "DefenseBox";
+            this.DefenseBox.Size = new System.Drawing.Size(100, 120);
+            this.DefenseBox.TabIndex = 16;
+            this.DefenseBox.TabStop = false;
             // 
             // label5
             // 
@@ -234,66 +235,31 @@
             this.playerBlockedRadioButtonHead.Text = "Head";
             this.playerBlockedRadioButtonHead.UseVisualStyleBackColor = true;
             // 
-            // listBox1
+            // logBox
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(168, 245);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(224, 134);
-            this.listBox1.TabIndex = 17;
+            this.logBox.FormattingEnabled = true;
+            this.logBox.Location = new System.Drawing.Point(168, 245);
+            this.logBox.Name = "logBox";
+            this.logBox.Size = new System.Drawing.Size(255, 147);
+            this.logBox.TabIndex = 17;
             // 
-            // menuStrip1
+            // labelText
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(575, 24);
-            this.menuStrip1.TabIndex = 18;
-            this.menuStrip1.Text = "menuStrip1";
+            this.labelText.AutoSize = true;
+            this.labelText.Location = new System.Drawing.Point(34, 284);
+            this.labelText.Name = "labelText";
+            this.labelText.Size = new System.Drawing.Size(50, 13);
+            this.labelText.TabIndex = 20;
+            this.labelText.Text = "Damage:";
             // 
-            // menuToolStripMenuItem
+            // labelText2
             // 
-            this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.restartToolStripMenuItem,
-            this.informationToolStripMenuItem,
-            this.recordsToolStripMenuItem,
-            this.exitToolStripMenuItem});
-            this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
-            this.menuToolStripMenuItem.Size = new System.Drawing.Size(45, 20);
-            this.menuToolStripMenuItem.Text = "Menu";
-            // 
-            // restartToolStripMenuItem
-            // 
-            this.restartToolStripMenuItem.Name = "restartToolStripMenuItem";
-            this.restartToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
-            this.restartToolStripMenuItem.Text = "Restart";
-            this.restartToolStripMenuItem.Click += new System.EventHandler(this.restartToolStripMenuItem_Click);
-            // 
-            // informationToolStripMenuItem
-            // 
-            this.informationToolStripMenuItem.Name = "informationToolStripMenuItem";
-            this.informationToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
-            this.informationToolStripMenuItem.Text = "Information";
-            this.informationToolStripMenuItem.Click += new System.EventHandler(this.informationToolStripMenuItem_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(34, 284);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 13);
-            this.label1.TabIndex = 20;
-            this.label1.Text = "Damage:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(429, 284);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(50, 13);
-            this.label2.TabIndex = 21;
-            this.label2.Text = "Damage:";
+            this.labelText2.AutoSize = true;
+            this.labelText2.Location = new System.Drawing.Point(429, 284);
+            this.labelText2.Name = "labelText2";
+            this.labelText2.Size = new System.Drawing.Size(50, 13);
+            this.labelText2.TabIndex = 21;
+            this.labelText2.Text = "Damage:";
             // 
             // userdamageLabel
             // 
@@ -315,7 +281,7 @@
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(37, 319);
+            this.buttonSave.Location = new System.Drawing.Point(30, 373);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(75, 23);
             this.buttonSave.TabIndex = 26;
@@ -341,33 +307,99 @@
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
             // 
-            // recordsToolStripMenuItem
+            // labelText3
             // 
-            this.recordsToolStripMenuItem.Name = "recordsToolStripMenuItem";
-            this.recordsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.recordsToolStripMenuItem.Text = "Records";
-            this.recordsToolStripMenuItem.Click += new System.EventHandler(this.recordsToolStripMenuItem_Click);
+            this.labelText3.AutoSize = true;
+            this.labelText3.Location = new System.Drawing.Point(34, 319);
+            this.labelText3.Name = "labelText3";
+            this.labelText3.Size = new System.Drawing.Size(28, 13);
+            this.labelText3.TabIndex = 27;
+            this.labelText3.Text = "HIT:";
             // 
-            // exitToolStripMenuItem
+            // labelText5
             // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click_1);
+            this.labelText5.AutoSize = true;
+            this.labelText5.Location = new System.Drawing.Point(34, 342);
+            this.labelText5.Name = "labelText5";
+            this.labelText5.Size = new System.Drawing.Size(49, 13);
+            this.labelText5.TabIndex = 28;
+            this.labelText5.Text = "Blocked:";
+            // 
+            // labelText4
+            // 
+            this.labelText4.AutoSize = true;
+            this.labelText4.Location = new System.Drawing.Point(429, 319);
+            this.labelText4.Name = "labelText4";
+            this.labelText4.Size = new System.Drawing.Size(28, 13);
+            this.labelText4.TabIndex = 29;
+            this.labelText4.Text = "HIT:";
+            // 
+            // labelText6
+            // 
+            this.labelText6.AutoSize = true;
+            this.labelText6.Location = new System.Drawing.Point(429, 342);
+            this.labelText6.Name = "labelText6";
+            this.labelText6.Size = new System.Drawing.Size(49, 13);
+            this.labelText6.TabIndex = 30;
+            this.labelText6.Text = "Blocked:";
+            // 
+            // playerHitLabel
+            // 
+            this.playerHitLabel.AutoSize = true;
+            this.playerHitLabel.Location = new System.Drawing.Point(92, 319);
+            this.playerHitLabel.Name = "playerHitLabel";
+            this.playerHitLabel.Size = new System.Drawing.Size(13, 13);
+            this.playerHitLabel.TabIndex = 31;
+            this.playerHitLabel.Text = "0";
+            // 
+            // playerBlockLabel
+            // 
+            this.playerBlockLabel.AutoSize = true;
+            this.playerBlockLabel.Location = new System.Drawing.Point(92, 342);
+            this.playerBlockLabel.Name = "playerBlockLabel";
+            this.playerBlockLabel.Size = new System.Drawing.Size(13, 13);
+            this.playerBlockLabel.TabIndex = 32;
+            this.playerBlockLabel.Text = "0";
+            // 
+            // botHitLabel
+            // 
+            this.botHitLabel.AutoSize = true;
+            this.botHitLabel.Location = new System.Drawing.Point(490, 319);
+            this.botHitLabel.Name = "botHitLabel";
+            this.botHitLabel.Size = new System.Drawing.Size(13, 13);
+            this.botHitLabel.TabIndex = 33;
+            this.botHitLabel.Text = "0";
+            // 
+            // botBlockLabel
+            // 
+            this.botBlockLabel.AutoSize = true;
+            this.botBlockLabel.Location = new System.Drawing.Point(490, 342);
+            this.botBlockLabel.Name = "botBlockLabel";
+            this.botBlockLabel.Size = new System.Drawing.Size(13, 13);
+            this.botBlockLabel.TabIndex = 34;
+            this.botBlockLabel.Text = "0";
             // 
             // GameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(575, 391);
+            this.ClientSize = new System.Drawing.Size(575, 425);
+            this.Controls.Add(this.botBlockLabel);
+            this.Controls.Add(this.botHitLabel);
+            this.Controls.Add(this.playerBlockLabel);
+            this.Controls.Add(this.playerHitLabel);
+            this.Controls.Add(this.labelText6);
+            this.Controls.Add(this.labelText4);
+            this.Controls.Add(this.labelText5);
+            this.Controls.Add(this.labelText3);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.botdamageLabel);
             this.Controls.Add(this.userdamageLabel);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.labelText2);
+            this.Controls.Add(this.labelText);
+            this.Controls.Add(this.logBox);
+            this.Controls.Add(this.DefenseBox);
+            this.Controls.Add(this.AttackBox);
             this.Controls.Add(this.fightButton);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
@@ -377,17 +409,13 @@
             this.Controls.Add(this.botNameLabel);
             this.Controls.Add(this.userHpLabel);
             this.Controls.Add(this.userNameLabel);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
             this.Name = "GameForm";
             this.Text = "GameForm";
             this.Load += new System.EventHandler(this.GameForm_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.AttackBox.ResumeLayout(false);
+            this.AttackBox.PerformLayout();
+            this.DefenseBox.ResumeLayout(false);
+            this.DefenseBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -406,27 +434,29 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button fightButton;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox AttackBox;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.RadioButton playerRadioButtonLegs;
         private System.Windows.Forms.RadioButton playerRadioButtonBody;
         private System.Windows.Forms.RadioButton playerRadioButtonHead;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox DefenseBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.RadioButton playerBlockedRadioButtonBody;
         private System.Windows.Forms.RadioButton playerBlockedRadioButtonLegs;
         private System.Windows.Forms.RadioButton playerBlockedRadioButtonHead;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem menuToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem restartToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem informationToolStripMenuItem;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ListBox logBox;
+        private System.Windows.Forms.Label labelText;
+        private System.Windows.Forms.Label labelText2;
         private System.Windows.Forms.Label userdamageLabel;
         private System.Windows.Forms.Label botdamageLabel;
         private System.Windows.Forms.Button buttonSave;
-        private System.Windows.Forms.ToolStripMenuItem recordsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.Label labelText3;
+        private System.Windows.Forms.Label labelText5;
+        private System.Windows.Forms.Label labelText4;
+        private System.Windows.Forms.Label labelText6;
+        private System.Windows.Forms.Label playerHitLabel;
+        private System.Windows.Forms.Label playerBlockLabel;
+        private System.Windows.Forms.Label botHitLabel;
+        private System.Windows.Forms.Label botBlockLabel;
     }
 }

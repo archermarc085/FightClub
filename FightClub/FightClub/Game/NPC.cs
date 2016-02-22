@@ -3,35 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace FightClub
 {
-    class NPC:AbstractPlayer,ISave
+    class NPC:AbstractPlayer
     {
-        int hp = 100;
-        int damage = 5;
-        int block = 0;
-        public override int Damage
-        {
-            get
-            {
-                return damage;
-            }
-            set
-            {
-                damage = value;
-            }
-        }
-
-        public override int HP
-        {
-            get { return hp; }
-            set
-            {
-                hp = value;
-            }
-        }
-
         public override int GetHit(Parts part)
         {
             if ((int)part != block)
@@ -42,7 +19,7 @@ namespace FightClub
                     if (Wound != null)
                         Wound(this, new GameEventArgs("wounded Bot"));
                 }
-                else
+                else 
                 {
                     hp = 0;
                     if (Death != null)
@@ -55,12 +32,6 @@ namespace FightClub
                     Block(this, new GameEventArgs("Bot Blocked"));
             }
             return hp;
-        }
-
-        public override int SetBlock(Parts part)
-        {
-            block = (int)part;
-            return block;
         }
 
         public override event GameForceHandler Wound;

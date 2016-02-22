@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace FightClub
 {
@@ -10,14 +11,14 @@ namespace FightClub
     {
         void Difficulty();
     }
+   public enum Level { Easy, Medium }
    class Presenter : ILvl
    {
-       IView view;
+       IGame view;
        IPlayer player;
        IPlayer npc;
        GameController controller;
-
-       public Presenter(IView view, IPlayer player, IPlayer npc)
+       public Presenter(IGame view, IPlayer player, IPlayer npc)
        {
            this.player = player;
            this.npc = npc;
@@ -37,7 +38,6 @@ namespace FightClub
            npc.Block += npc_Block;
            npc.Death += npc_Death;
            npc.Wound += npc_Wound;
-
            view.Battle += view_Battle;
        }
 
@@ -78,9 +78,10 @@ namespace FightClub
        {
            if (sender is NPC)
            {
+               Transfer.player_count_win++;
                NPC bot = (NPC)sender;
                npc.log = String.Format("{0}: left Bot HP:{1}", e.msg, bot.HP);
-               PlayerForm playerForm = new PlayerForm();
+               MessageForm playerForm = new MessageForm();
                playerForm.Show();
            }
        }
@@ -107,9 +108,10 @@ namespace FightClub
        {
            if (sender is Player)
            {
+               Transfer.bot_count_win++;
                Player user = (Player)sender;
                player.log = String.Format("{0} {1}: left {2} HP:{3}", player.Name, e.msg, player.Name, player.HP);
-               BotForm endForm = new BotForm();
+               MessageForm endForm = new MessageForm();
                endForm.Show();
            }
        }

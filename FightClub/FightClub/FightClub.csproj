@@ -47,67 +47,68 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AbstractPlayer.cs" />
-    <Compile Include="BotForm.cs">
+    <Compile Include="Game\AbstractPlayer.cs" />
+    <Compile Include="UI\MessageForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BotForm.Designer.cs">
-      <DependentUpon>BotForm.cs</DependentUpon>
+    <Compile Include="UI\MessageForm.Designer.cs">
+      <DependentUpon>MessageForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="GameController.cs" />
-    <Compile Include="GameEventArgs.cs" />
-    <Compile Include="GameForm.cs">
+    <Compile Include="UI\ContainerForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GameForm.Designer.cs">
+    <Compile Include="UI\ContainerForm.Designer.cs">
+      <DependentUpon>ContainerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Game\GameController.cs" />
+    <Compile Include="Game\GameEventArgs.cs" />
+    <Compile Include="UI\GameForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\GameForm.Designer.cs">
       <DependentUpon>GameForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="InformationForm.cs">
+    <Compile Include="UI\Transfer.cs" />
+    <Compile Include="UI\InformationForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="InformationForm.Designer.cs">
+    <Compile Include="UI\InformationForm.Designer.cs">
       <DependentUpon>InformationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="IPlayer.cs" />
-    <Compile Include="ISave.cs" />
-    <Compile Include="IView.cs" />
-    <Compile Include="MainForm.cs">
+    <Compile Include="Game\IPlayer.cs" />
+    <Compile Include="UI\Interfaces\ISave.cs" />
+    <Compile Include="UI\Interfaces\IGame.cs" />
+    <Compile Include="UI\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
+    <Compile Include="UI\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="NPC.cs" />
-    <Compile Include="Player.cs" />
-    <Compile Include="PlayerForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PlayerForm.Designer.cs">
-      <DependentUpon>PlayerForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Presenter.cs" />
+    <Compile Include="Game\NPC.cs" />
+    <Compile Include="Game\Player.cs" />
+    <Compile Include="Game\GamePresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SaveForm.cs">
+    <Compile Include="UI\SaveForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SaveForm.Designer.cs">
+    <Compile Include="UI\SaveForm.Designer.cs">
       <DependentUpon>SaveForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="BotForm.resx">
-      <DependentUpon>BotForm.cs</DependentUpon>
+    <EmbeddedResource Include="UI\MessageForm.resx">
+      <DependentUpon>MessageForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GameForm.resx">
+    <EmbeddedResource Include="UI\ContainerForm.resx">
+      <DependentUpon>ContainerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\GameForm.resx">
       <DependentUpon>GameForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="InformationForm.resx">
+    <EmbeddedResource Include="UI\InformationForm.resx">
       <DependentUpon>InformationForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PlayerForm.resx">
-      <DependentUpon>PlayerForm.cs</DependentUpon>
+    <EmbeddedResource Include="UI\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -119,7 +120,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="SaveForm.resx">
+    <EmbeddedResource Include="UI\SaveForm.resx">
       <DependentUpon>SaveForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
@@ -141,9 +142,6 @@
   <ItemGroup>
     <None Include="Resources\FC.rtf" />
     <None Include="Resources\fight.gif" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\android.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

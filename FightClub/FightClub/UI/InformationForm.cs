@@ -16,7 +16,6 @@ namespace FightClub
         {
             InitializeComponent();
         }
-
         private void InformationForm_Load(object sender, EventArgs e)
         {
             string path = Application.StartupPath;

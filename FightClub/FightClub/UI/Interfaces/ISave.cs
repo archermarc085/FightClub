@@ -8,9 +8,7 @@ namespace FightClub
 {
     interface ISave
     {
-        string Name { get; set; }
-        int HP { get; set; }
-        int Damage { get; set; }
-        int Win { get; set; }
+        string Name { get;  }
+        int Win { get;  }
     }
 }

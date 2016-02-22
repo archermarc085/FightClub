@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace FightClub
 {
-    interface IView
+    interface IGame
     {
         string PlayerName { get; set; }
         int PlayerHp { get; set; }
-        string BotName { set; }
+        string BotName { get; set; }
         int BotHp { get; set; }
         string BotDamage { get; set; }
         string PlayerDamage { get; set; }
