@@ -46,25 +46,26 @@
             this.playerBlockedRadioButtonLegs = new System.Windows.Forms.RadioButton();
             this.playerBlockedRadioButtonHead = new System.Windows.Forms.RadioButton();
             this.logBox = new System.Windows.Forms.ListBox();
-            this.labelText = new System.Windows.Forms.Label();
-            this.labelText2 = new System.Windows.Forms.Label();
+            this.playerlabelTextDamage = new System.Windows.Forms.Label();
+            this.botlabelTextDamage = new System.Windows.Forms.Label();
             this.userdamageLabel = new System.Windows.Forms.Label();
             this.botdamageLabel = new System.Windows.Forms.Label();
             this.buttonSave = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.labelText3 = new System.Windows.Forms.Label();
-            this.labelText5 = new System.Windows.Forms.Label();
-            this.labelText4 = new System.Windows.Forms.Label();
-            this.labelText6 = new System.Windows.Forms.Label();
+            this.botPictureBox = new System.Windows.Forms.PictureBox();
+            this.playerPictureBox = new System.Windows.Forms.PictureBox();
+            this.playerlabelTextHit = new System.Windows.Forms.Label();
+            this.playerlabelTextBlock = new System.Windows.Forms.Label();
+            this.botlabelTextHit = new System.Windows.Forms.Label();
+            this.botlabelTextBlock = new System.Windows.Forms.Label();
             this.playerHitLabel = new System.Windows.Forms.Label();
             this.playerBlockLabel = new System.Windows.Forms.Label();
             this.botHitLabel = new System.Windows.Forms.Label();
             this.botBlockLabel = new System.Windows.Forms.Label();
+            this.RestartBtn = new System.Windows.Forms.Button();
             this.AttackBox.SuspendLayout();
             this.DefenseBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.botPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.playerPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // userNameLabel
@@ -243,23 +244,23 @@
             this.logBox.Size = new System.Drawing.Size(255, 147);
             this.logBox.TabIndex = 17;
             // 
-            // labelText
+            // playerlabelTextDamage
             // 
-            this.labelText.AutoSize = true;
-            this.labelText.Location = new System.Drawing.Point(34, 284);
-            this.labelText.Name = "labelText";
-            this.labelText.Size = new System.Drawing.Size(50, 13);
-            this.labelText.TabIndex = 20;
-            this.labelText.Text = "Damage:";
+            this.playerlabelTextDamage.AutoSize = true;
+            this.playerlabelTextDamage.Location = new System.Drawing.Point(34, 284);
+            this.playerlabelTextDamage.Name = "playerlabelTextDamage";
+            this.playerlabelTextDamage.Size = new System.Drawing.Size(50, 13);
+            this.playerlabelTextDamage.TabIndex = 20;
+            this.playerlabelTextDamage.Text = "Damage:";
             // 
-            // labelText2
+            // botlabelTextDamage
             // 
-            this.labelText2.AutoSize = true;
-            this.labelText2.Location = new System.Drawing.Point(429, 284);
-            this.labelText2.Name = "labelText2";
-            this.labelText2.Size = new System.Drawing.Size(50, 13);
-            this.labelText2.TabIndex = 21;
-            this.labelText2.Text = "Damage:";
+            this.botlabelTextDamage.AutoSize = true;
+            this.botlabelTextDamage.Location = new System.Drawing.Point(429, 284);
+            this.botlabelTextDamage.Name = "botlabelTextDamage";
+            this.botlabelTextDamage.Size = new System.Drawing.Size(50, 13);
+            this.botlabelTextDamage.TabIndex = 21;
+            this.botlabelTextDamage.Text = "Damage:";
             // 
             // userdamageLabel
             // 
@@ -289,59 +290,59 @@
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
-            // pictureBox2
+            // botPictureBox
             // 
-            this.pictureBox2.BackColor = System.Drawing.SystemColors.Control;
-            this.pictureBox2.Location = new System.Drawing.Point(432, 65);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(131, 120);
-            this.pictureBox2.TabIndex = 7;
-            this.pictureBox2.TabStop = false;
+            this.botPictureBox.BackColor = System.Drawing.SystemColors.Control;
+            this.botPictureBox.Location = new System.Drawing.Point(432, 65);
+            this.botPictureBox.Name = "botPictureBox";
+            this.botPictureBox.Size = new System.Drawing.Size(131, 120);
+            this.botPictureBox.TabIndex = 7;
+            this.botPictureBox.TabStop = false;
             // 
-            // pictureBox1
+            // playerPictureBox
             // 
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.Window;
-            this.pictureBox1.Location = new System.Drawing.Point(37, 63);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(131, 120);
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
+            this.playerPictureBox.BackColor = System.Drawing.SystemColors.Window;
+            this.playerPictureBox.Location = new System.Drawing.Point(37, 63);
+            this.playerPictureBox.Name = "playerPictureBox";
+            this.playerPictureBox.Size = new System.Drawing.Size(131, 120);
+            this.playerPictureBox.TabIndex = 6;
+            this.playerPictureBox.TabStop = false;
             // 
-            // labelText3
+            // playerlabelTextHit
             // 
-            this.labelText3.AutoSize = true;
-            this.labelText3.Location = new System.Drawing.Point(34, 319);
-            this.labelText3.Name = "labelText3";
-            this.labelText3.Size = new System.Drawing.Size(28, 13);
-            this.labelText3.TabIndex = 27;
-            this.labelText3.Text = "HIT:";
+            this.playerlabelTextHit.AutoSize = true;
+            this.playerlabelTextHit.Location = new System.Drawing.Point(34, 319);
+            this.playerlabelTextHit.Name = "playerlabelTextHit";
+            this.playerlabelTextHit.Size = new System.Drawing.Size(28, 13);
+            this.playerlabelTextHit.TabIndex = 27;
+            this.playerlabelTextHit.Text = "HIT:";
             // 
-            // labelText5
+            // playerlabelTextBlock
             // 
-            this.labelText5.AutoSize = true;
-            this.labelText5.Location = new System.Drawing.Point(34, 342);
-            this.labelText5.Name = "labelText5";
-            this.labelText5.Size = new System.Drawing.Size(49, 13);
-            this.labelText5.TabIndex = 28;
-            this.labelText5.Text = "Blocked:";
+            this.playerlabelTextBlock.AutoSize = true;
+            this.playerlabelTextBlock.Location = new System.Drawing.Point(34, 342);
+            this.playerlabelTextBlock.Name = "playerlabelTextBlock";
+            this.playerlabelTextBlock.Size = new System.Drawing.Size(49, 13);
+            this.playerlabelTextBlock.TabIndex = 28;
+            this.playerlabelTextBlock.Text = "Blocked:";
             // 
-            // labelText4
+            // botlabelTextHit
             // 
-            this.labelText4.AutoSize = true;
-            this.labelText4.Location = new System.Drawing.Point(429, 319);
-            this.labelText4.Name = "labelText4";
-            this.labelText4.Size = new System.Drawing.Size(28, 13);
-            this.labelText4.TabIndex = 29;
-            this.labelText4.Text = "HIT:";
+            this.botlabelTextHit.AutoSize = true;
+            this.botlabelTextHit.Location = new System.Drawing.Point(429, 319);
+            this.botlabelTextHit.Name = "botlabelTextHit";
+            this.botlabelTextHit.Size = new System.Drawing.Size(28, 13);
+            this.botlabelTextHit.TabIndex = 29;
+            this.botlabelTextHit.Text = "HIT:";
             // 
-            // labelText6
+            // botlabelTextBlock
             // 
-            this.labelText6.AutoSize = true;
-            this.labelText6.Location = new System.Drawing.Point(429, 342);
-            this.labelText6.Name = "labelText6";
-            this.labelText6.Size = new System.Drawing.Size(49, 13);
-            this.labelText6.TabIndex = 30;
-            this.labelText6.Text = "Blocked:";
+            this.botlabelTextBlock.AutoSize = true;
+            this.botlabelTextBlock.Location = new System.Drawing.Point(429, 342);
+            this.botlabelTextBlock.Name = "botlabelTextBlock";
+            this.botlabelTextBlock.Size = new System.Drawing.Size(49, 13);
+            this.botlabelTextBlock.TabIndex = 30;
+            this.botlabelTextBlock.Text = "Blocked:";
             // 
             // playerHitLabel
             // 
@@ -379,30 +380,41 @@
             this.botBlockLabel.TabIndex = 34;
             this.botBlockLabel.Text = "0";
             // 
+            // RestartBtn
+            // 
+            this.RestartBtn.Location = new System.Drawing.Point(257, 36);
+            this.RestartBtn.Name = "RestartBtn";
+            this.RestartBtn.Size = new System.Drawing.Size(75, 23);
+            this.RestartBtn.TabIndex = 35;
+            this.RestartBtn.Text = "Restart";
+            this.RestartBtn.UseVisualStyleBackColor = true;
+            this.RestartBtn.Click += new System.EventHandler(this.RestartBtn_Click);
+            // 
             // GameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(575, 425);
+            this.Controls.Add(this.RestartBtn);
             this.Controls.Add(this.botBlockLabel);
             this.Controls.Add(this.botHitLabel);
             this.Controls.Add(this.playerBlockLabel);
             this.Controls.Add(this.playerHitLabel);
-            this.Controls.Add(this.labelText6);
-            this.Controls.Add(this.labelText4);
-            this.Controls.Add(this.labelText5);
-            this.Controls.Add(this.labelText3);
+            this.Controls.Add(this.botlabelTextBlock);
+            this.Controls.Add(this.botlabelTextHit);
+            this.Controls.Add(this.playerlabelTextBlock);
+            this.Controls.Add(this.playerlabelTextHit);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.botdamageLabel);
             this.Controls.Add(this.userdamageLabel);
-            this.Controls.Add(this.labelText2);
-            this.Controls.Add(this.labelText);
+            this.Controls.Add(this.botlabelTextDamage);
+            this.Controls.Add(this.playerlabelTextDamage);
             this.Controls.Add(this.logBox);
             this.Controls.Add(this.DefenseBox);
             this.Controls.Add(this.AttackBox);
             this.Controls.Add(this.fightButton);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.botPictureBox);
+            this.Controls.Add(this.playerPictureBox);
             this.Controls.Add(this.botProgressBar);
             this.Controls.Add(this.userProgressBar);
             this.Controls.Add(this.botHpLabel);
@@ -416,8 +428,8 @@
             this.AttackBox.PerformLayout();
             this.DefenseBox.ResumeLayout(false);
             this.DefenseBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.botPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.playerPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -431,8 +443,8 @@
         private System.Windows.Forms.Label botHpLabel;
         private System.Windows.Forms.ProgressBar userProgressBar;
         private System.Windows.Forms.ProgressBar botProgressBar;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox playerPictureBox;
+        private System.Windows.Forms.PictureBox botPictureBox;
         private System.Windows.Forms.Button fightButton;
         private System.Windows.Forms.GroupBox AttackBox;
         private System.Windows.Forms.Label label6;
@@ -445,18 +457,19 @@
         private System.Windows.Forms.RadioButton playerBlockedRadioButtonLegs;
         private System.Windows.Forms.RadioButton playerBlockedRadioButtonHead;
         private System.Windows.Forms.ListBox logBox;
-        private System.Windows.Forms.Label labelText;
-        private System.Windows.Forms.Label labelText2;
+        private System.Windows.Forms.Label playerlabelTextDamage;
+        private System.Windows.Forms.Label botlabelTextDamage;
         private System.Windows.Forms.Label userdamageLabel;
         private System.Windows.Forms.Label botdamageLabel;
         private System.Windows.Forms.Button buttonSave;
-        private System.Windows.Forms.Label labelText3;
-        private System.Windows.Forms.Label labelText5;
-        private System.Windows.Forms.Label labelText4;
-        private System.Windows.Forms.Label labelText6;
+        private System.Windows.Forms.Label playerlabelTextHit;
+        private System.Windows.Forms.Label playerlabelTextBlock;
+        private System.Windows.Forms.Label botlabelTextHit;
+        private System.Windows.Forms.Label botlabelTextBlock;
         private System.Windows.Forms.Label playerHitLabel;
         private System.Windows.Forms.Label playerBlockLabel;
         private System.Windows.Forms.Label botHitLabel;
         private System.Windows.Forms.Label botBlockLabel;
+        private System.Windows.Forms.Button RestartBtn;
     }
 }

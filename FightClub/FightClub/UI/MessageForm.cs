@@ -17,13 +17,12 @@ namespace FightClub
             InitializeComponent();
             ShowMsg();
         }
-
         private void ShowMsg()
         {
             if (Transfer.bot_count_win > Transfer.player_count_win)
             {
                 heroBox.Image = FightClub.Properties.Resources.bot;
-                labelName.Text = "Bot win!";
+                labelName.Text = Transfer.BotName + " " + "win!";
             }
             else
             {

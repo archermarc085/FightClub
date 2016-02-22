@@ -14,6 +14,7 @@ namespace FightClub
     public partial class SaveForm : Form
     {
         List<ISave> collection = null;
+        const string fileName = "records.txt";
         public SaveForm()
         {
             InitializeComponent();
@@ -54,40 +55,68 @@ namespace FightClub
             UpdateGrid();
             DataGridInit();
         }
-        private void buttonSave_Click(object sender, EventArgs e)
+
+        private List<ISave> Open() 
         {
-            Stream mysteam;
-            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            var users = new List<ISave>();
+
+            if (File.Exists(fileName))
             {
-                if ((mysteam = saveFileDialog1.OpenFile()) != null)
+                foreach (var line in File.ReadAllLines(fileName))
                 {
-                    StreamWriter writer = new StreamWriter(mysteam);
                     try
                     {
-                        for (int i = 0; i < dataRecords.RowCount; i++)
-                        {
-                            writer.WriteLine("---------------------------------");
-                            for (int j = 0; j < dataRecords.ColumnCount; j++)
-                            {
-                                writer.Write("|" + "\t" + dataRecords.Rows[i].Cells[j].Value.ToString() + "\t" + "|");
-                            }
-                            writer.WriteLine();
-                            writer.WriteLine("---------------------------------");
-                        }
-
+                        var columns = line.Split('\t');
+                        users.Add(new Player() { Name = columns[0], Win = Convert.ToInt16(columns[1]) });
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message);
                     }
-                    finally
-                    {
-                        writer.Close();
-                    }
-                    mysteam.Close();
                 }
+                MessageBox.Show("Updated!");
             }
+            else 
+            {
+                MessageBox.Show("File not found!");
+            }
+            return users;
+        }
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            if (File.Exists(fileName))
+            {
+                TextWriter sw = new StreamWriter(fileName, true, System.Text.Encoding.Default);
+                for (int i = 0; i < dataRecords.Rows.Count - 1; i++)
+                {
+                    for (int j = 0; j < dataRecords.Columns.Count; j++)
+                    {
+                        sw.Write(dataRecords.Rows[i].Cells[j].Value.ToString() + "\t");
+                    }
+                    sw.WriteLine();
+                }
+                sw.Close();
+                MessageBox.Show("Data Exported");
+            }
+            else 
+            {
+                TextWriter sw = new StreamWriter(fileName, false, System.Text.Encoding.Default);
+                for (int i = 0; i < dataRecords.Rows.Count - 1; i++)
+                {
+                    for (int j = 0; j < dataRecords.Columns.Count; j++)
+                    {
+                        sw.Write(dataRecords.Rows[i].Cells[j].Value.ToString() + "\t");
+                    }
+                    sw.WriteLine();
+                }
+                sw.Close();
+            }
+        }
 
+        private void buttonUpdate_Click(object sender, EventArgs e)
+        {
+            collection = Open();
+            UpdateGrid();
         }
     }
 }

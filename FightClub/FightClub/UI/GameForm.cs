@@ -13,8 +13,8 @@ namespace FightClub
 {
     public partial class GameForm : Form,IGame
     {
+        const string fullpath = "Log.txt";        
         SaveForm save;
-        string fullpath = "Log.txt";
         Presenter presenter;
         IPlayer player = new Player();
         IPlayer npc = new NPC();
@@ -85,6 +85,7 @@ namespace FightClub
                 UncheckedRadiobuttons(AttackBox);
                 UncheckedRadiobuttons(DefenseBox);
                 fightButton.Visible = false;
+                RestartBtn.Visible = true;
             }
         }
 
@@ -97,6 +98,17 @@ namespace FightClub
                     RadioButton radio = control as RadioButton;
                     radio.AutoCheck = false;
                     radio.Checked = false;
+                }
+            }
+        }
+        private void CheckedRadiobuttons(GroupBox groupBox)
+        {
+            foreach (Control control in groupBox.Controls)
+            {
+                if (control is RadioButton)
+                {
+                    RadioButton radio = control as RadioButton;
+                    radio.AutoCheck = true;
                 }
             }
         }
@@ -126,7 +138,7 @@ namespace FightClub
             }
             catch
             {
-                MessageBox.Show("You must input 2 blocks!", "Warning!");
+                MessageBox.Show("You must choose 2 blocks!", "Warning!");
                 return false;
             }
             return true;
@@ -164,12 +176,13 @@ namespace FightClub
         private void GameForm_Load(object sender, EventArgs e)
         {
             save = new SaveForm();
-            pictureBox1.Image = FightClub.Properties.Resources.fight;
-            pictureBox2.Image = FightClub.Properties.Resources.bot;
+            playerPictureBox.Image = FightClub.Properties.Resources.fight;
+            botPictureBox.Image = FightClub.Properties.Resources.bot;
             presenter = new Presenter(this, player, npc);
             presenter.Difficulty();
             Transfer.PlayerName = player.Name;
             Transfer.BotName = npc.Name;
+            RestartBtn.Visible = false;
         }
        
         private void buttonSave_Click(object sender, EventArgs e)
@@ -186,6 +199,17 @@ namespace FightClub
             MessageBox.Show("Saved!");
         }
 
+        private void RestartBtn_Click(object sender, EventArgs e)
+        {
+            fightButton.Visible = true;
+            CheckedRadiobuttons(AttackBox);
+            CheckedRadiobuttons(DefenseBox);
+            player.Recovery();
+            npc.Recovery();
+            logBox.Items.Clear();
+            UpdateHP();
+            RestartBtn.Visible = false;
+        }
         public event GameForceHandler Battle;
     }
 }

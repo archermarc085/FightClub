@@ -10,20 +10,20 @@ namespace FightClub
     class GameController
     {
         Random rand = new Random();
-        IPlayer user = new Player();
+        IPlayer player = new Player();
         IPlayer bot = new NPC();
 
-        public GameController(IPlayer user, IPlayer bot)
+        public GameController(IPlayer player, IPlayer bot)
         {
-            this.user = user;
+            this.player = player;
             this.bot = bot;
         }
         public void Battle()
         {
             bot.Hit = rand.Next(1, 4);
-            user.GetHit((Parts)bot.Hit);
+            player.GetHit((Parts)bot.Hit);
             bot.SetBlock((Parts)rand.Next(1, 4));
-            bot.GetHit((Parts)user.Hit);
+            bot.GetHit((Parts)player.Hit);
         }
     }
 }

@@ -20,16 +20,13 @@ namespace FightClub
         {
             InitializeComponent();
         }
-        private void Difficulty(string str)
-        {
-            Enum.TryParse(str, out lvl);
-        }
+  
         private void enterButton_Click(object sender, EventArgs e)
         {
             this.Hide();
             game = new GameForm();
             game.PlayerName = nameTextBox.Text;
-            Difficulty(str);
+            Enum.TryParse(str, out lvl);
             game.difficulty = lvl;
             game.ShowDialog();
             this.Close();     

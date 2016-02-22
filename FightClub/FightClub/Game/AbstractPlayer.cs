@@ -36,6 +36,10 @@ namespace FightClub
         public string log { get; set; }
         public int Win { get; set; }
         abstract public int GetHit(Parts part);
+        public void Recovery()
+        {
+            hp = 100;
+        }
         public int SetBlock(Parts part) 
         {
             block = (int)part;
@@ -44,6 +48,5 @@ namespace FightClub
         abstract public event GameForceHandler Wound;
         abstract public event GameForceHandler Block;
         abstract public event GameForceHandler Death;
-
     }
 }
