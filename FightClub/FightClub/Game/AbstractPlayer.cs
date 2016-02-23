@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FightClub
 {
-    abstract class AbstractPlayer : IPlayer,ISave
+    abstract class AbstractPlayer : IPlayer
     {
         protected int hp = 100;
         protected int damage = 5;

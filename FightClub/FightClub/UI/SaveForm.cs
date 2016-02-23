@@ -13,7 +13,7 @@ namespace FightClub
 {
     public partial class SaveForm : Form
     {
-        List<ISave> collection = null;
+        List<Save> collection = null;
         const string fileName = "records.txt";
         public SaveForm()
         {
@@ -47,18 +47,18 @@ namespace FightClub
 
         private void SaveForm_Load(object sender, EventArgs e)
         {
-            collection = new List<ISave> 
+            collection = new List<Save> 
             {
-                new Player{ Name = Transfer.PlayerName, Win = Transfer.player_count_win},
-                new NPC{  Name = Transfer.BotName, Win = Transfer.bot_count_win}
+                new Save(){ Name = Transfer.PlayerName, Win = Transfer.player_count_win},
+                new Save(){  Name = Transfer.BotName, Win = Transfer.bot_count_win}
             };
             DataGridInitHeight();         
             UpdateGrid();
         }
 
-        private List<ISave> Open() 
+        private List<Save> Open() 
         {
-            var users = new List<ISave>();
+            var users = new List<Save>();
 
             if (File.Exists(fileName))
             {
@@ -67,7 +67,7 @@ namespace FightClub
                     try
                     {
                         var columns = line.Split('\t');
-                        users.Add(new Player() { Name = columns[0], Win = Convert.ToInt16(columns[1]) });
+                        users.Add(new Save() { Name = columns[0], Win = Convert.ToInt16(columns[1]) });
                     }
                     catch (Exception ex)
                     {
@@ -80,6 +80,7 @@ namespace FightClub
             {
                 MessageBox.Show("File not found!");
             }
+            users.Sort();
             return users;
         }
         private void buttonSave_Click(object sender, EventArgs e)
