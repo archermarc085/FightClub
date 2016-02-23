@@ -76,7 +76,7 @@
       <DependentUpon>InformationForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Game\IPlayer.cs" />
-    <Compile Include="UI\Interfaces\Save.cs" />
+    <Compile Include="UI\Save.cs" />
     <Compile Include="UI\Interfaces\IGame.cs" />
     <Compile Include="UI\LoginForm.cs">
       <SubType>Form</SubType>
