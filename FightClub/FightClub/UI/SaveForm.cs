@@ -91,12 +91,19 @@ namespace FightClub
                 {
                     for (int j = 0; j < dataRecords.Columns.Count; j++)
                     {
-                        sw.Write(dataRecords.Rows[i].Cells[j].Value.ToString() + "\t");
-                    }
+                        try
+                        {
+                            sw.Write(dataRecords.Rows[i].Cells[j].Value.ToString() + "\t");
+                        }
+                        catch(Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
+                     }
                     sw.WriteLine();
                 }
                 sw.Close();
-                MessageBox.Show("Data Exported");
+                MessageBox.Show("Data Saved!");
             }
             else 
             {
@@ -105,8 +112,15 @@ namespace FightClub
                 {
                     for (int j = 0; j < dataRecords.Columns.Count; j++)
                     {
-                        sw.Write(dataRecords.Rows[i].Cells[j].Value.ToString() + "\t");
-                    }
+                        try
+                        {
+                            sw.Write(dataRecords.Rows[i].Cells[j].Value.ToString() + "\t");
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
+                     }
                     sw.WriteLine();
                 }
                 sw.Close();

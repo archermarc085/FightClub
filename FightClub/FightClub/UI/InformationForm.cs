@@ -22,7 +22,7 @@ namespace FightClub
             string filepath = path.Replace(@"\bin\Debug", "");
             string folder = @"\Resources\FC.rtf";
             string fullpath = filepath + folder;
-            richTextBox1.LoadFile(fullpath);
+            informationTextBox.LoadFile(fullpath);
         }
     }
 }

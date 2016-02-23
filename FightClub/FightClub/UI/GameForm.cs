@@ -13,7 +13,8 @@ namespace FightClub
 {
     public partial class GameForm : Form,IGame
     {
-        const string fullpath = "Log.txt";        
+        const string fullpath = "Log.txt";
+        StringBuilder fighterAction = new StringBuilder();
         SaveForm save;
         Presenter presenter;
         IPlayer player = new Player();
@@ -76,6 +77,8 @@ namespace FightClub
             playerBlockLabel.Text = ((Parts)player.Set).ToString();
             botBlockLabel.Text = ((Parts)npc.Set).ToString();
             botHitLabel.Text = ((Parts)npc.Hit).ToString();
+            fighterAction.AppendLine(string.Format("Bot Attack: {0} | Player Blocked: {1}", botHitLabel.Text, playerBlockLabel.Text));
+            fighterAction.AppendLine(string.Format("Player Attack: {0} | Bot Blocked: {1}", playerHitLabel.Text, botBlockLabel.Text));
         }
 
         private void CheckHp()
@@ -187,12 +190,15 @@ namespace FightClub
        
         private void buttonSave_Click(object sender, EventArgs e)
         {
+            string[] stringArray = fighterAction.ToString().Split('\n').ToArray();
             StreamWriter sw = File.CreateText(fullpath);
             sw.WriteLine(string.Format("Fight: {0} vs {1} ", PlayerName, npc.Name));
             sw.WriteLine(string.Format("Level difficulty: {0}", difficulty.ToString()));
+            int count = 0;
             foreach (string s in logBox.Items)
             {
-                sw.WriteLine(s);
+                sw.WriteLine(stringArray[count] +'\t'+ s);
+                count++;
             }
             sw.WriteLine("End battle!");
             sw.Close();
