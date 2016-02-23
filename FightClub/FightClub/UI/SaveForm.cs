@@ -30,19 +30,19 @@ namespace FightClub
             dataRecords.Height = dataRecords.Rows.GetRowsHeight(DataGridViewElementStates.Visible) +
                                dataRecords.ColumnHeadersHeight;
         }
-        private void dataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        private void dataGridView_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
             ChangeHeight();
         }
 
-        private void dataGridView1_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        private void dataGridView_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
         {
             ChangeHeight();
         }
-        private void DataGridInit()
+        private void DataGridInitHeight()
         {
-            this.dataRecords.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGridView1_RowsAdded);
-            this.dataRecords.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dataGridView1_RowsRemoved);
+            this.dataRecords.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGridView_RowsAdded);
+            this.dataRecords.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dataGridView_RowsRemoved);
         }
 
         private void SaveForm_Load(object sender, EventArgs e)
@@ -52,8 +52,8 @@ namespace FightClub
                 new Player{ Name = Transfer.PlayerName, Win = Transfer.player_count_win},
                 new NPC{  Name = Transfer.BotName, Win = Transfer.bot_count_win}
             };
+            DataGridInitHeight();         
             UpdateGrid();
-            DataGridInit();
         }
 
         private List<ISave> Open() 
@@ -74,7 +74,7 @@ namespace FightClub
                         MessageBox.Show(ex.Message);
                     }
                 }
-                MessageBox.Show("Updated!");
+                MessageBox.Show("Loaded!");
             }
             else 
             {

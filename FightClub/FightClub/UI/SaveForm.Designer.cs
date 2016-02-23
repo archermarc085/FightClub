@@ -38,10 +38,12 @@
             // 
             // dataRecords
             // 
-            this.dataRecords.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataRecords.AllowUserToAddRows = false;
+            this.dataRecords.AllowUserToDeleteRows = false;
             this.dataRecords.Location = new System.Drawing.Point(12, 12);
             this.dataRecords.Name = "dataRecords";
-            this.dataRecords.Size = new System.Drawing.Size(262, 137);
+            this.dataRecords.ReadOnly = true;
+            this.dataRecords.Size = new System.Drawing.Size(263, 137);
             this.dataRecords.TabIndex = 0;
             // 
             // buttonSave
@@ -60,11 +62,11 @@
             // 
             // buttonUpdate
             // 
-            this.buttonUpdate.Location = new System.Drawing.Point(172, 155);
+            this.buttonUpdate.Location = new System.Drawing.Point(173, 155);
             this.buttonUpdate.Name = "buttonUpdate";
             this.buttonUpdate.Size = new System.Drawing.Size(75, 23);
             this.buttonUpdate.TabIndex = 3;
-            this.buttonUpdate.Text = "Update";
+            this.buttonUpdate.Text = "Review";
             this.buttonUpdate.UseVisualStyleBackColor = true;
             this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
             // 
