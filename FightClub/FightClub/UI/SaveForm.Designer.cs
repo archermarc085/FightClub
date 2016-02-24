@@ -39,6 +39,9 @@
             // 
             this.dataRecords.AllowUserToAddRows = false;
             this.dataRecords.AllowUserToDeleteRows = false;
+            this.dataRecords.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataRecords.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataRecords.Location = new System.Drawing.Point(12, 12);
             this.dataRecords.Name = "dataRecords";
             this.dataRecords.ReadOnly = true;
@@ -58,6 +61,7 @@
             // 
             // buttonUpdate
             // 
+            this.buttonUpdate.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.buttonUpdate.Location = new System.Drawing.Point(103, 105);
             this.buttonUpdate.Name = "buttonUpdate";
             this.buttonUpdate.Size = new System.Drawing.Size(65, 36);
@@ -68,6 +72,7 @@
             // 
             // pveButton
             // 
+            this.pveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pveButton.Location = new System.Drawing.Point(191, 105);
             this.pveButton.Name = "pveButton";
             this.pveButton.Size = new System.Drawing.Size(64, 23);

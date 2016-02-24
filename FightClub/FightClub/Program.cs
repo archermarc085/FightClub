@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FightClub.UI;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,6 +17,15 @@ namespace FightClub
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            StartForm startForm = new StartForm();
+            DateTime end = DateTime.Now + TimeSpan.FromSeconds(5);
+            startForm.Show();
+            while(end > DateTime.Now)
+            {
+                Application.DoEvents();
+            }
+            startForm.Close();
+            startForm.Dispose();
             Application.Run(new ContainerForm());
         }
     }

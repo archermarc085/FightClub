@@ -39,6 +39,8 @@
             // 
             // nameTextBox
             // 
+            this.nameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.nameTextBox.Location = new System.Drawing.Point(39, 33);
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(100, 20);
@@ -48,6 +50,7 @@
             // 
             // enterButton
             // 
+            this.enterButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.enterButton.Location = new System.Drawing.Point(52, 123);
             this.enterButton.Name = "enterButton";
             this.enterButton.Size = new System.Drawing.Size(75, 23);
@@ -58,6 +61,7 @@
             // 
             // LvlBox
             // 
+            this.LvlBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.LvlBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.LvlBox.FormattingEnabled = true;
             this.LvlBox.Location = new System.Drawing.Point(39, 81);
@@ -68,6 +72,7 @@
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(36, 65);
             this.label1.Name = "label1";
