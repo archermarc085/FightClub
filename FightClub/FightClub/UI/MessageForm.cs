@@ -19,15 +19,15 @@ namespace FightClub
         }
         private void ShowMsg()
         {
-            if (Transfer.bot_count_win > Transfer.player_count_win)
+            if (StaticValues.bot_count_win > StaticValues.player_count_win)
             {
                 heroBox.Image = FightClub.Properties.Resources.bot;
-                labelName.Text = Transfer.BotName + " " + "win!";
+                labelName.Text = StaticValues.BotName + " " + "win!";
             }
             else
             {
                 heroBox.Image = FightClub.Properties.Resources.fight;
-                labelName.Text = Transfer.PlayerName +" "+ "win!";
+                labelName.Text = StaticValues.PlayerName +" "+ "win!";
             }
         }
         private void buttonClose_Click(object sender, EventArgs e)

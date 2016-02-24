@@ -79,5 +79,16 @@ namespace FightClub.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User	1		
+        ///Archer	1	
+        ///.
+        /// </summary>
+        internal static string records {
+            get {
+                return ResourceManager.GetString("records", resourceCulture);
+            }
+        }
     }
 }

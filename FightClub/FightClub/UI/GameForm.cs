@@ -183,8 +183,8 @@ namespace FightClub
             botPictureBox.Image = FightClub.Properties.Resources.bot;
             presenter = new Presenter(this, player, npc);
             presenter.Difficulty();
-            Transfer.PlayerName = player.Name;
-            Transfer.BotName = npc.Name;
+            StaticValues.PlayerName = player.Name;
+            StaticValues.BotName = npc.Name;
             RestartBtn.Visible = false;
         }
        

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FightClub
 {
-    static class Transfer
+    static class StaticValues
     {
         internal static int player_count_win = 0;
         internal static int bot_count_win = 0;

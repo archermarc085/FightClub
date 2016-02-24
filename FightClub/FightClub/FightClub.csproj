@@ -68,7 +68,7 @@
     <Compile Include="UI\GameForm.Designer.cs">
       <DependentUpon>GameForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Transfer.cs" />
+    <Compile Include="UI\StaticValues.cs" />
     <Compile Include="UI\InformationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,7 +77,7 @@
     </Compile>
     <Compile Include="Game\IPlayer.cs" />
     <Compile Include="UI\Save.cs" />
-    <Compile Include="UI\Interfaces\IGame.cs" />
+    <Compile Include="UI\Interface\IGame.cs" />
     <Compile Include="UI\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,6 +142,9 @@
   <ItemGroup>
     <None Include="Resources\FC.rtf" />
     <None Include="Resources\fight.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\records.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

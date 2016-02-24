@@ -78,7 +78,7 @@ namespace FightClub
        {
            if (sender is NPC)
            {
-               Transfer.player_count_win++;
+               StaticValues.player_count_win++;
                NPC bot = (NPC)sender;
                npc.log = String.Format("{0}: left Bot HP:{1}", e.msg, bot.HP);
                MessageForm playerForm = new MessageForm();
@@ -108,7 +108,7 @@ namespace FightClub
        {
            if (sender is Player)
            {
-               Transfer.bot_count_win++;
+               StaticValues.bot_count_win++;
                Player user = (Player)sender;
                player.log = String.Format("{0} {1}: left {2} HP:{3}", player.Name, e.msg, player.Name, player.HP);
                MessageForm endForm = new MessageForm();

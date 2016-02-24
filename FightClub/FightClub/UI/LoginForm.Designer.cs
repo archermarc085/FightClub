@@ -48,7 +48,7 @@
             // 
             // enterButton
             // 
-            this.enterButton.Location = new System.Drawing.Point(39, 123);
+            this.enterButton.Location = new System.Drawing.Point(52, 123);
             this.enterButton.Name = "enterButton";
             this.enterButton.Size = new System.Drawing.Size(75, 23);
             this.enterButton.TabIndex = 1;
