@@ -17,7 +17,7 @@ namespace FightClub
     {
         List<Save> collection = null;
         string fullpath = "";
-        const string fileName = "records.txt";
+       //const string fileName = "records.txt";
         public SaveForm()
         {
             InitializeComponent();
