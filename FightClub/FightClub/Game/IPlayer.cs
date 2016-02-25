@@ -18,7 +18,7 @@ namespace FightClub
         int Set { get; }
         int GetHit(Parts part);
         int SetBlock(Parts part);
-        void Recovery();
+        int Recovery(bool h);
         int BonusHp();
         void ImproveDmg();
         event GameForceHandler Wound;

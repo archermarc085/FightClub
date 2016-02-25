@@ -126,6 +126,24 @@ namespace FightClub
             logBox.Items.Add(player.log);
             logBox.Items.Add(npc.log);
         }
+        private void ExchangePb()
+        {
+            if (hero == Hero.Striker)
+            {
+                userProgressBar.Maximum = player.Recovery(true);
+                botProgressBar.Maximum = npc.Recovery(false);
+            }
+            else if (hero == Hero.Defender)
+            {
+                userProgressBar.Maximum = player.Recovery(false);
+                botProgressBar.Maximum = npc.Recovery(true);
+            }
+            else
+            {
+                userProgressBar.Maximum = player.Recovery(true);
+                botProgressBar.Maximum = npc.Recovery(true);
+            }
+        }
         private bool SetActions()
         {
             string result1 = "";
@@ -185,23 +203,8 @@ namespace FightClub
             StaticValues.PlayerName = player.Name;
             StaticValues.BotName = npc.Name;
             RestartBtn.Visible = false;
-
-            if(hero == Hero.Striker)
-            {
-                userProgressBar.Maximum = 100;
-            }
-            else if (hero == Hero.Defender)
-            {
-                userProgressBar.Maximum = 125;
-                botProgressBar.Maximum = 100;
-            }
-            else 
-            {
-                userProgressBar.Maximum = 100;
-                botProgressBar.Maximum = 100;
-            }
+            ExchangePb();
             UpdateHP();
-
         }
        
         private void buttonSave_Click(object sender, EventArgs e)
@@ -228,9 +231,8 @@ namespace FightClub
             fightButton.Visible = true;
             CheckedRadiobuttons(AttackBox);
             CheckedRadiobuttons(DefenseBox);
-            player.Recovery();
-            npc.Recovery();
             logBox.Items.Clear();
+            ExchangePb();
             UpdateHP();
             RestartBtn.Visible = false;
         }

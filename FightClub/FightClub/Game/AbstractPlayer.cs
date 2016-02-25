@@ -9,6 +9,7 @@ namespace FightClub
     abstract class AbstractPlayer : IPlayer
     {
         const int bonusHp = 25;
+        Random rand = new Random();     
         protected int hp = 100;
         protected int damage = 5;
         protected int block = 0;
@@ -36,30 +37,35 @@ namespace FightClub
         public int Set { get { return (int)block; } }
         public string log { get; set; }
         public int Win { get; set; }
-        abstract public int GetHit(Parts part);
-        public void Recovery()
-        {
-            hp = 100;
-        }
+        
         public int SetBlock(Parts part) 
         {
             block = (int)part;
             return block;
         }
-        abstract public event GameForceHandler Wound;
-        abstract public event GameForceHandler Block;
-        abstract public event GameForceHandler Death;
-
-
         public int BonusHp()
         {
             hp = hp + bonusHp;
             return hp;
         }
-        Random rand = new Random();
         public  void ImproveDmg()
         {
             damage = rand.Next(5,13);
         }
+        public int Recovery(bool h)
+        {
+            if (h) 
+            {
+                hp = 100;
+                return hp;
+            }
+
+            hp = 125;
+            return hp;
+        }
+        abstract public int GetHit(Parts part);
+        abstract public event GameForceHandler Wound;
+        abstract public event GameForceHandler Block;
+        abstract public event GameForceHandler Death;
     }
 }

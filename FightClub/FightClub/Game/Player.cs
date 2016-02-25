@@ -9,6 +9,7 @@ namespace FightClub
 {
     class Player:AbstractPlayer
     {
+       
         public override int GetHit(Parts part)
         {
             if ((int)part != block)

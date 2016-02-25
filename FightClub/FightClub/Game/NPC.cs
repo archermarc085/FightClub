@@ -33,7 +33,6 @@ namespace FightClub
             }
             return hp;
         }
-
         public override event GameForceHandler Wound;
         public override event GameForceHandler Block;
         public override event GameForceHandler Death;
