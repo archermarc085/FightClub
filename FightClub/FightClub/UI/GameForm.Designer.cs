@@ -63,6 +63,8 @@
             this.botBlockLabel = new System.Windows.Forms.Label();
             this.RestartBtn = new System.Windows.Forms.Button();
             this.modeLabel = new System.Windows.Forms.Label();
+            this.textLvlLabel = new System.Windows.Forms.Label();
+            this.lvlLabel = new System.Windows.Forms.Label();
             this.AttackBox.SuspendLayout();
             this.DefenseBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.botPictureBox)).BeginInit();
@@ -314,7 +316,7 @@
             // playerlabelTextHit
             // 
             this.playerlabelTextHit.AutoSize = true;
-            this.playerlabelTextHit.Location = new System.Drawing.Point(34, 319);
+            this.playerlabelTextHit.Location = new System.Drawing.Point(34, 342);
             this.playerlabelTextHit.Name = "playerlabelTextHit";
             this.playerlabelTextHit.Size = new System.Drawing.Size(28, 13);
             this.playerlabelTextHit.TabIndex = 27;
@@ -323,7 +325,7 @@
             // playerlabelTextBlock
             // 
             this.playerlabelTextBlock.AutoSize = true;
-            this.playerlabelTextBlock.Location = new System.Drawing.Point(34, 342);
+            this.playerlabelTextBlock.Location = new System.Drawing.Point(34, 319);
             this.playerlabelTextBlock.Name = "playerlabelTextBlock";
             this.playerlabelTextBlock.Size = new System.Drawing.Size(49, 13);
             this.playerlabelTextBlock.TabIndex = 28;
@@ -350,7 +352,7 @@
             // playerHitLabel
             // 
             this.playerHitLabel.AutoSize = true;
-            this.playerHitLabel.Location = new System.Drawing.Point(92, 319);
+            this.playerHitLabel.Location = new System.Drawing.Point(92, 342);
             this.playerHitLabel.Name = "playerHitLabel";
             this.playerHitLabel.Size = new System.Drawing.Size(13, 13);
             this.playerHitLabel.TabIndex = 31;
@@ -359,7 +361,7 @@
             // playerBlockLabel
             // 
             this.playerBlockLabel.AutoSize = true;
-            this.playerBlockLabel.Location = new System.Drawing.Point(92, 342);
+            this.playerBlockLabel.Location = new System.Drawing.Point(92, 319);
             this.playerBlockLabel.Name = "playerBlockLabel";
             this.playerBlockLabel.Size = new System.Drawing.Size(13, 13);
             this.playerBlockLabel.TabIndex = 32;
@@ -368,7 +370,7 @@
             // botHitLabel
             // 
             this.botHitLabel.AutoSize = true;
-            this.botHitLabel.Location = new System.Drawing.Point(490, 319);
+            this.botHitLabel.Location = new System.Drawing.Point(484, 319);
             this.botHitLabel.Name = "botHitLabel";
             this.botHitLabel.Size = new System.Drawing.Size(13, 13);
             this.botHitLabel.TabIndex = 33;
@@ -377,7 +379,7 @@
             // botBlockLabel
             // 
             this.botBlockLabel.AutoSize = true;
-            this.botBlockLabel.Location = new System.Drawing.Point(490, 342);
+            this.botBlockLabel.Location = new System.Drawing.Point(484, 342);
             this.botBlockLabel.Name = "botBlockLabel";
             this.botBlockLabel.Size = new System.Drawing.Size(13, 13);
             this.botBlockLabel.TabIndex = 34;
@@ -403,11 +405,33 @@
             this.modeLabel.TabIndex = 36;
             this.modeLabel.Text = "Mode";
             // 
+            // textLvlLabel
+            // 
+            this.textLvlLabel.AutoSize = true;
+            this.textLvlLabel.Font = new System.Drawing.Font("SketchFlow Print", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textLvlLabel.Location = new System.Drawing.Point(240, 395);
+            this.textLvlLabel.Name = "textLvlLabel";
+            this.textLvlLabel.Size = new System.Drawing.Size(43, 21);
+            this.textLvlLabel.TabIndex = 37;
+            this.textLvlLabel.Text = "Lvl:";
+            // 
+            // lvlLabel
+            // 
+            this.lvlLabel.AutoSize = true;
+            this.lvlLabel.Font = new System.Drawing.Font("SketchFlow Print", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lvlLabel.Location = new System.Drawing.Point(308, 395);
+            this.lvlLabel.Name = "lvlLabel";
+            this.lvlLabel.Size = new System.Drawing.Size(22, 21);
+            this.lvlLabel.TabIndex = 38;
+            this.lvlLabel.Text = "0";
+            // 
             // GameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(575, 425);
+            this.ClientSize = new System.Drawing.Size(603, 425);
+            this.Controls.Add(this.lvlLabel);
+            this.Controls.Add(this.textLvlLabel);
             this.Controls.Add(this.modeLabel);
             this.Controls.Add(this.RestartBtn);
             this.Controls.Add(this.botBlockLabel);
@@ -487,5 +511,7 @@
         private System.Windows.Forms.Label botBlockLabel;
         private System.Windows.Forms.Button RestartBtn;
         private System.Windows.Forms.Label modeLabel;
+        private System.Windows.Forms.Label textLvlLabel;
+        private System.Windows.Forms.Label lvlLabel;
     }
 }

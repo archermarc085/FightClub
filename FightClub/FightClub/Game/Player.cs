@@ -9,33 +9,5 @@ namespace FightClub
 {
     class Player:AbstractPlayer
     {
-       
-        public override int GetHit(Parts part)
-        {
-            if ((int)part != block)
-            {
-                if (hp - damage > 0)
-                {
-                    hp -= damage;
-                    if (Wound != null)
-                        Wound(this, new GameEventArgs("Bot wounded"));
-                }
-                else
-                {
-                    hp = 0;
-                    if (Death != null)
-                        Death(this, new GameEventArgs("Died"));
-                }
-            }
-            if (block == (int)part)
-            {
-                if (Block != null)
-                    Block(this, new GameEventArgs("Blocked"));
-            }
-            return hp;
-        }
-        public override event GameForceHandler Wound;
-        public override event GameForceHandler Block;
-        public override event GameForceHandler Death;
     }
 }

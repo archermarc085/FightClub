@@ -81,7 +81,7 @@
     <Compile Include="UI\InformationForm.Designer.cs">
       <DependentUpon>InformationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Game\IPlayer.cs" />
+    <Compile Include="Game\Interface\IPlayer.cs" />
     <Compile Include="UI\Save.cs" />
     <Compile Include="UI\Interface\IGame.cs" />
     <Compile Include="UI\LoginForm.cs">

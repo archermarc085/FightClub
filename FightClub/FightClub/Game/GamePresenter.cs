@@ -105,7 +105,7 @@ namespace FightClub
            if (sender is NPC)
            {
                NPC bot = (NPC)sender;
-               npc.log = String.Format("{0} {1}: left Bot HP:{2}", player.Name, e.msg, bot.HP);
+               npc.log = String.Format("{0} {1} {2}: left Bot HP:{3}", player.Name, e.msg, bot.Name ,bot.HP);
            }
        }
 
@@ -115,7 +115,7 @@ namespace FightClub
            {
                StaticValues.player_count_win++;
                NPC bot = (NPC)sender;
-               npc.log = String.Format("{0}: left Bot HP:{1}", e.msg, bot.HP);
+               npc.log = String.Format("{0} {1}: left Bot HP:{2}",bot.Name, e.msg, bot.HP);
                MessageForm playerForm = new MessageForm();
                playerForm.Show();
            }
@@ -126,7 +126,7 @@ namespace FightClub
            if (sender is NPC)
            {
                NPC bot = (NPC)sender;
-               npc.log = string.Format("{0}: left Bot HP:{1}", e.msg, bot.HP);
+               npc.log = string.Format("{0} {1}: left Bot HP:{2}", bot.Name, e.msg, bot.HP);
            }
        }
 
@@ -135,7 +135,7 @@ namespace FightClub
            if (sender is Player)
            {
                Player user = (Player)sender;
-               player.log = String.Format("{0} {1}:  left {2} HP:{3}", e.msg, player.Name, player.Name, player.HP);
+               player.log = String.Format("{0} {1} {2}: left {3} HP:{4}", npc.Name, e.msg, player.Name, player.Name, player.HP);
            }
        }
 

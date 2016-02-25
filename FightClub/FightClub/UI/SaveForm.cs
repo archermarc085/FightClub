@@ -17,7 +17,6 @@ namespace FightClub
     {
         List<Save> collection = null;
         string fullpath = "";
-       //const string fileName = "records.txt";
         public SaveForm()
         {
             InitializeComponent();
@@ -26,41 +25,6 @@ namespace FightClub
         {
             dataRecords.DataSource = null;
             dataRecords.DataSource = collection;
-        }
-
-        //private void ChangeHeight()
-        //{
-        //    dataRecords.Height = dataRecords.Rows.GetRowsHeight(DataGridViewElementStates.Visible) +
-        //                       dataRecords.ColumnHeadersHeight;
-        //}
-        //private void dataGridView_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
-        //{
-        //    ChangeHeight();
-        //}
-
-        //private void dataGridView_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
-        //{
-        //    ChangeHeight();
-        //}
-        //private void DataGridInitHeight()
-        //{
-        //    this.dataRecords.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGridView_RowsAdded);
-        //    this.dataRecords.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dataGridView_RowsRemoved);
-        //}
-
-        private void SaveForm_Load(object sender, EventArgs e)
-        {
-            string path = Application.StartupPath;
-            string filepath = path.Replace(@"\bin\Debug", "");
-            string folder = @"\Resources\records.txt";
-            fullpath = filepath + folder;
-
-            collection = new List<Save> 
-            {
-                new Save(){ Name = StaticValues.PlayerName, Win = StaticValues.player_count_win},
-                new Save(){  Name = StaticValues.BotName, Win = StaticValues.bot_count_win}
-            };
-            UpdateGrid();
         }
 
         private List<Save> Open() 
@@ -90,7 +54,7 @@ namespace FightClub
             users.Sort();
             return users;
         }
-        private void buttonSave_Click(object sender, EventArgs e)
+        private void SaveMethod(string fullpath)
         {
             if (File.Exists(fullpath))
             {
@@ -103,17 +67,17 @@ namespace FightClub
                         {
                             sw.Write(dataRecords.Rows[i].Cells[j].Value.ToString() + "\t");
                         }
-                        catch(Exception ex)
+                        catch (Exception ex)
                         {
                             MessageBox.Show(ex.Message);
                         }
-                     }
+                    }
                     sw.WriteLine();
                 }
                 sw.Close();
                 MessageBox.Show("Data Saved!");
             }
-            else 
+            else
             {
                 TextWriter sw = new StreamWriter(fullpath, false, System.Text.Encoding.Default);
                 for (int i = 0; i < dataRecords.Rows.Count - 1; i++)
@@ -128,19 +92,12 @@ namespace FightClub
                         {
                             MessageBox.Show(ex.Message);
                         }
-                     }
+                    }
                     sw.WriteLine();
                 }
                 sw.Close();
             }
         }
-
-        private void buttonUpdate_Click(object sender, EventArgs e)
-        {
-            collection = Open();
-            UpdateGrid();
-        }
-
         static void Serialize()
         {
             List<Save> list = new List<Save>();
@@ -192,11 +149,33 @@ namespace FightClub
                 MessageBox.Show( str.ToString(),"PVE");
         }
 
+        private void SaveForm_Load(object sender, EventArgs e)
+        {
+            string path = Application.StartupPath;
+            string filepath = path.Replace(@"\bin\Debug", "");
+            string folder = @"\Resources\records.txt";
+            fullpath = filepath + folder;
+
+            collection = new List<Save> 
+            {
+                new Save(){ Name = StaticValues.PlayerName, Win = StaticValues.player_count_win},
+                new Save(){  Name = StaticValues.BotName, Win = StaticValues.bot_count_win}
+            };
+            UpdateGrid();
+        }
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            SaveMethod(fullpath);
+        }
         private void pveButton_Click(object sender, EventArgs e)
         {
             Serialize();
             Deserialize();
         }
-
+        private void buttonUpdate_Click(object sender, EventArgs e)
+        {
+            collection = Open();
+            UpdateGrid();
+        }
     }
 }

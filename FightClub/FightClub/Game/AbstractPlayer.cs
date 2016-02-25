@@ -8,11 +8,15 @@ namespace FightClub
 {
     abstract class AbstractPlayer : IPlayer
     {
+        #region Fields
         const int bonusHp = 25;
         Random rand = new Random();     
         protected int hp = 100;
         protected int damage = 5;
         protected int block = 0;
+        #endregion
+
+        #region Properties
         public string Name { get; set; }
         public int Damage
         {
@@ -37,7 +41,9 @@ namespace FightClub
         public int Set { get { return (int)block; } }
         public string log { get; set; }
         public int Win { get; set; }
-        
+        #endregion
+
+        #region Methods
         public int SetBlock(Parts part) 
         {
             block = (int)part;
@@ -63,9 +69,36 @@ namespace FightClub
             hp = 125;
             return hp;
         }
-        abstract public int GetHit(Parts part);
-        abstract public event GameForceHandler Wound;
-        abstract public event GameForceHandler Block;
-        abstract public event GameForceHandler Death;
+        public int GetHit(Parts part)
+        {
+            if ((int)part != block)
+            {
+                if (hp - damage > 0)
+                {
+                    hp -= damage;
+                    if (Wound != null)
+                        Wound(this, new GameEventArgs("wounded"));
+                }
+                else
+                {
+                    hp = 0;
+                    if (Death != null)
+                        Death(this, new GameEventArgs("Died"));
+                }
+            }
+            if (block == (int)part)
+            {
+                if (Block != null)
+                    Block(this, new GameEventArgs("Blocked"));
+            }
+            return hp;
+        }
+        #endregion
+
+        #region events
+        public event GameForceHandler Wound;
+        public event GameForceHandler Block;
+        public event GameForceHandler Death;
+        #endregion
     }
 }

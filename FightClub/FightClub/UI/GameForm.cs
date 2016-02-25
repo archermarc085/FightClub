@@ -179,6 +179,21 @@ namespace FightClub
             }
             return result;
         }
+
+        private void GameForm_Load(object sender, EventArgs e)
+        {
+            modeLabel.Text = hero.ToString();
+            lvlLabel.Text = difficulty.ToString();
+            playerPictureBox.Image = FightClub.Properties.Resources.fight;
+            botPictureBox.Image = FightClub.Properties.Resources.bot;
+            presenter = new Presenter(this, player, npc);
+            presenter.Difficulty();
+            StaticValues.PlayerName = player.Name;
+            StaticValues.BotName = npc.Name;
+            RestartBtn.Visible = false;
+            ExchangePb();
+            UpdateHP();
+        }
         private void fightButton_Click(object sender, EventArgs e)
         {
             userdamageLabel.Text = player.Damage.ToString();
@@ -192,21 +207,7 @@ namespace FightClub
             UpdateLog();
             CheckHp();
             ShowActions();
-        }
-        private void GameForm_Load(object sender, EventArgs e)
-        {
-            modeLabel.Text = hero.ToString();
-            playerPictureBox.Image = FightClub.Properties.Resources.fight;
-            botPictureBox.Image = FightClub.Properties.Resources.bot;
-            presenter = new Presenter(this, player, npc);
-            presenter.Difficulty();
-            StaticValues.PlayerName = player.Name;
-            StaticValues.BotName = npc.Name;
-            RestartBtn.Visible = false;
-            ExchangePb();
-            UpdateHP();
-        }
-       
+        }  
         private void buttonSave_Click(object sender, EventArgs e)
         {
             string[] stringArray = fighterAction.ToString().Split('\n').ToArray();
