@@ -90,6 +90,7 @@
             this.Controls.Add(this.buttonUpdate);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.dataRecords);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "SaveForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SaveForm";

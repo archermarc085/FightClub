@@ -15,6 +15,7 @@ namespace FightClub
         string BotDamage { get; set; }
         string PlayerDamage { get; set; }
         Level difficulty { get; set; }
+        Hero hero { get; set; }
         event GameForceHandler Battle;
     }
 }

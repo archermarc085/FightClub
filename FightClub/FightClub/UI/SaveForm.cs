@@ -28,25 +28,25 @@ namespace FightClub
             dataRecords.DataSource = collection;
         }
 
-        private void ChangeHeight()
-        {
-            dataRecords.Height = dataRecords.Rows.GetRowsHeight(DataGridViewElementStates.Visible) +
-                               dataRecords.ColumnHeadersHeight;
-        }
-        private void dataGridView_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
-        {
-            ChangeHeight();
-        }
+        //private void ChangeHeight()
+        //{
+        //    dataRecords.Height = dataRecords.Rows.GetRowsHeight(DataGridViewElementStates.Visible) +
+        //                       dataRecords.ColumnHeadersHeight;
+        //}
+        //private void dataGridView_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        //{
+        //    ChangeHeight();
+        //}
 
-        private void dataGridView_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
-        {
-            ChangeHeight();
-        }
-        private void DataGridInitHeight()
-        {
-            this.dataRecords.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGridView_RowsAdded);
-            this.dataRecords.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dataGridView_RowsRemoved);
-        }
+        //private void dataGridView_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        //{
+        //    ChangeHeight();
+        //}
+        //private void DataGridInitHeight()
+        //{
+        //    this.dataRecords.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGridView_RowsAdded);
+        //    this.dataRecords.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dataGridView_RowsRemoved);
+        //}
 
         private void SaveForm_Load(object sender, EventArgs e)
         {
@@ -144,7 +144,6 @@ namespace FightClub
         static void Serialize()
         {
             List<Save> list = new List<Save>();
-
             list.Add(new Save() { Name = StaticValues.PlayerName, Win = StaticValues.player_count_win });
             list.Add(new Save() { Name = StaticValues.BotName, Win = StaticValues.bot_count_win });
             FileStream fs = new FileStream("DataFile.dat", FileMode.Create);

@@ -62,6 +62,7 @@
             this.botHitLabel = new System.Windows.Forms.Label();
             this.botBlockLabel = new System.Windows.Forms.Label();
             this.RestartBtn = new System.Windows.Forms.Button();
+            this.modeLabel = new System.Windows.Forms.Label();
             this.AttackBox.SuspendLayout();
             this.DefenseBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.botPictureBox)).BeginInit();
@@ -107,6 +108,7 @@
             // userProgressBar
             // 
             this.userProgressBar.Location = new System.Drawing.Point(37, 189);
+            this.userProgressBar.Maximum = 125;
             this.userProgressBar.Name = "userProgressBar";
             this.userProgressBar.Size = new System.Drawing.Size(131, 23);
             this.userProgressBar.TabIndex = 4;
@@ -114,6 +116,7 @@
             // botProgressBar
             // 
             this.botProgressBar.Location = new System.Drawing.Point(432, 191);
+            this.botProgressBar.Maximum = 125;
             this.botProgressBar.Name = "botProgressBar";
             this.botProgressBar.Size = new System.Drawing.Size(131, 23);
             this.botProgressBar.TabIndex = 5;
@@ -390,11 +393,22 @@
             this.RestartBtn.UseVisualStyleBackColor = true;
             this.RestartBtn.Click += new System.EventHandler(this.RestartBtn_Click);
             // 
+            // modeLabel
+            // 
+            this.modeLabel.AutoSize = true;
+            this.modeLabel.Font = new System.Drawing.Font("SketchFlow Print", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.modeLabel.Location = new System.Drawing.Point(273, 9);
+            this.modeLabel.Name = "modeLabel";
+            this.modeLabel.Size = new System.Drawing.Size(59, 21);
+            this.modeLabel.TabIndex = 36;
+            this.modeLabel.Text = "Mode";
+            // 
             // GameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(575, 425);
+            this.Controls.Add(this.modeLabel);
             this.Controls.Add(this.RestartBtn);
             this.Controls.Add(this.botBlockLabel);
             this.Controls.Add(this.botHitLabel);
@@ -421,6 +435,7 @@
             this.Controls.Add(this.botNameLabel);
             this.Controls.Add(this.userHpLabel);
             this.Controls.Add(this.userNameLabel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "GameForm";
             this.Text = "GameForm";
             this.Load += new System.EventHandler(this.GameForm_Load);
@@ -471,5 +486,6 @@
         private System.Windows.Forms.Label botHitLabel;
         private System.Windows.Forms.Label botBlockLabel;
         private System.Windows.Forms.Button RestartBtn;
+        private System.Windows.Forms.Label modeLabel;
     }
 }

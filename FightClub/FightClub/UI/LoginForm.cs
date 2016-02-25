@@ -14,21 +14,33 @@ namespace FightClub
     {
         GameForm game;
         Level lvl;
+        Hero hero;
         string str = "";
-
         public LoginForm()
         {
             InitializeComponent();
         }
+        private void HeroType()
+        {
+            string str = "";
+            if (heroBox.SelectedItem != null)
+            {
+                str = heroBox.SelectedItem.ToString();
+            }
+            Enum.TryParse(str, out hero);
+        }
   
         private void enterButton_Click(object sender, EventArgs e)
         {
+            HeroType();
             this.Hide();
             game = new GameForm();
             game.PlayerName = nameTextBox.Text;
             Enum.TryParse(str, out lvl);
             game.difficulty = lvl;
-            game.ShowDialog();
+            game.hero = hero;
+            game.MdiParent = this.MdiParent as ContainerForm;
+            game.Show();
             this.Close();     
         }
 
@@ -60,5 +72,7 @@ namespace FightClub
         {
             str = LvlBox.SelectedValue.ToString();
         }
+      
+      
     }
 }

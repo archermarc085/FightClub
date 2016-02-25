@@ -15,12 +15,11 @@ namespace FightClub
     {
         const string fullpath = "Log.txt";
         StringBuilder fighterAction = new StringBuilder();
-        SaveForm save;
         Presenter presenter;
         IPlayer player = new Player();
         IPlayer npc = new NPC();
-
         public Level difficulty { get; set; }
+        public Hero hero { get; set; }
         public string PlayerName
         {
             get { return userNameLabel.Text; }
@@ -178,7 +177,7 @@ namespace FightClub
         }
         private void GameForm_Load(object sender, EventArgs e)
         {
-            save = new SaveForm();
+            modeLabel.Text = hero.ToString();
             playerPictureBox.Image = FightClub.Properties.Resources.fight;
             botPictureBox.Image = FightClub.Properties.Resources.bot;
             presenter = new Presenter(this, player, npc);
@@ -186,6 +185,23 @@ namespace FightClub
             StaticValues.PlayerName = player.Name;
             StaticValues.BotName = npc.Name;
             RestartBtn.Visible = false;
+
+            if(hero == Hero.Striker)
+            {
+                userProgressBar.Maximum = 100;
+            }
+            else if (hero == Hero.Defender)
+            {
+                userProgressBar.Maximum = 125;
+                botProgressBar.Maximum = 100;
+            }
+            else 
+            {
+                userProgressBar.Maximum = 100;
+                botProgressBar.Maximum = 100;
+            }
+            UpdateHP();
+
         }
        
         private void buttonSave_Click(object sender, EventArgs e)
@@ -193,7 +209,9 @@ namespace FightClub
             string[] stringArray = fighterAction.ToString().Split('\n').ToArray();
             StreamWriter sw = File.CreateText(fullpath);
             sw.WriteLine(string.Format("Fight: {0} vs {1} ", PlayerName, npc.Name));
+            sw.WriteLine(string.Format("Mode: {0}", hero.ToString()));
             sw.WriteLine(string.Format("Level difficulty: {0}", difficulty.ToString()));
+
             int count = 0;
             foreach (string s in logBox.Items)
             {

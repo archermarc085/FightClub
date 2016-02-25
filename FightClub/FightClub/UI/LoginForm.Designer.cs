@@ -32,7 +32,9 @@
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.enterButton = new System.Windows.Forms.Button();
             this.LvlBox = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lvlLabel = new System.Windows.Forms.Label();
+            this.heroBox = new System.Windows.Forms.ComboBox();
+            this.classHeroLabel = new System.Windows.Forms.Label();
             this.iLvlBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.iLvlBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -51,7 +53,7 @@
             // enterButton
             // 
             this.enterButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.enterButton.Location = new System.Drawing.Point(52, 123);
+            this.enterButton.Location = new System.Drawing.Point(54, 169);
             this.enterButton.Name = "enterButton";
             this.enterButton.Size = new System.Drawing.Size(75, 23);
             this.enterButton.TabIndex = 1;
@@ -70,31 +72,56 @@
             this.LvlBox.TabIndex = 3;
             this.LvlBox.SelectedIndexChanged += new System.EventHandler(this.LvlBox_SelectedIndexChanged);
             // 
-            // label1
+            // lvlLabel
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(36, 65);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(115, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Select level of difficulty";
+            this.lvlLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lvlLabel.AutoSize = true;
+            this.lvlLabel.Location = new System.Drawing.Point(36, 65);
+            this.lvlLabel.Name = "lvlLabel";
+            this.lvlLabel.Size = new System.Drawing.Size(115, 13);
+            this.lvlLabel.TabIndex = 4;
+            this.lvlLabel.Text = "Select level of difficulty";
+            // 
+            // heroBox
+            // 
+            this.heroBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.heroBox.FormattingEnabled = true;
+            this.heroBox.Items.AddRange(new object[] {
+            "Striker",
+            "Defender",
+            "Usual"});
+            this.heroBox.Location = new System.Drawing.Point(39, 127);
+            this.heroBox.Name = "heroBox";
+            this.heroBox.Size = new System.Drawing.Size(121, 21);
+            this.heroBox.TabIndex = 5;
+            // 
+            // classHeroLabel
+            // 
+            this.classHeroLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.classHeroLabel.AutoSize = true;
+            this.classHeroLabel.Location = new System.Drawing.Point(36, 111);
+            this.classHeroLabel.Name = "classHeroLabel";
+            this.classHeroLabel.Size = new System.Drawing.Size(67, 13);
+            this.classHeroLabel.TabIndex = 6;
+            this.classHeroLabel.Text = "Select class:";
             // 
             // iLvlBindingSource
             // 
-            this.iLvlBindingSource.DataSource = typeof(FightClub.ILvl);
+           // this.iLvlBindingSource.DataSource = typeof(FightClub.ILvl);
             // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(212, 158);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(212, 204);
+            this.Controls.Add(this.classHeroLabel);
+            this.Controls.Add(this.heroBox);
+            this.Controls.Add(this.lvlLabel);
             this.Controls.Add(this.LvlBox);
             this.Controls.Add(this.enterButton);
             this.Controls.Add(this.nameTextBox);
             this.Name = "LoginForm";
-            this.Text = "Welcome";
+            this.Text = "Welcome to PVE";
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.iLvlBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -107,8 +134,10 @@
         private System.Windows.Forms.TextBox nameTextBox;
         private System.Windows.Forms.Button enterButton;
         private System.Windows.Forms.ComboBox LvlBox;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lvlLabel;
         private System.Windows.Forms.BindingSource iLvlBindingSource;
+        private System.Windows.Forms.ComboBox heroBox;
+        private System.Windows.Forms.Label classHeroLabel;
     }
 }
 

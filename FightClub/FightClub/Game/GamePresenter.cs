@@ -7,12 +7,9 @@ using System.Windows.Forms;
 
 namespace FightClub
 {
-   interface ILvl 
-    {
-        void Difficulty();
-    }
    public enum Level { Easy, Medium }
-   class Presenter : ILvl
+   public enum Hero { Striker, Defender, Usual }
+   class Presenter 
    {
        IGame view;
        IPlayer player;
@@ -46,18 +43,56 @@ namespace FightClub
            switch (view.difficulty)
            {
                case Level.Easy:
-                   npc.Damage = 5;
-                   player.Damage = 5;
-                   view.BotDamage = npc.Damage.ToString();
-                   view.PlayerDamage = player.Damage.ToString();
+                  
+                   switch(view.hero)
+                   {
+                       case Hero.Usual:
+                           ChangeDmg();
+                           break;
+                       case Hero.Striker:
+                           Striker();
+                           break;
+                       case Hero.Defender:
+                           Defender();
+                           break;
+                   }
                    break;
                case Level.Medium:
-                   npc.Damage = 5;
                    player.Damage = 10;
-                   view.BotDamage = npc.Damage.ToString();
-                   view.PlayerDamage = player.Damage.ToString();
+                   switch (view.hero)
+                   {
+                       case Hero.Usual:
+                           ChangeDmg();
+                           break;
+                       case Hero.Striker:
+                           Striker();
+                           break;
+                       case Hero.Defender:
+                           Defender();
+                           break;
+                   }
                    break;
            }
+       }
+
+       private void Defender()
+       {
+           player.BonusHp();
+           player.ImproveDmg();
+           ChangeDmg();
+       }
+
+       private void Striker()
+       {
+           npc.ImproveDmg();
+           npc.BonusHp();
+           ChangeDmg();
+       }
+
+       private void ChangeDmg()
+       {
+           view.BotDamage = npc.Damage.ToString();
+           view.PlayerDamage = player.Damage.ToString();
        }
 
        void view_Battle(object sender, GameEventArgs e)

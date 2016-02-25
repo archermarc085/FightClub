@@ -10,7 +10,7 @@ namespace FightClub
     public delegate void GameForceHandler(object sender, GameEventArgs e);
     interface IPlayer
     {
-        int HP { get; set; }
+        int HP { get;  }
         string log { get; set; }
         int Damage { get; set; }
         string Name { get; set; }
@@ -19,6 +19,8 @@ namespace FightClub
         int GetHit(Parts part);
         int SetBlock(Parts part);
         void Recovery();
+        int BonusHp();
+        void ImproveDmg();
         event GameForceHandler Wound;
         event GameForceHandler Block;
         event GameForceHandler Death;
