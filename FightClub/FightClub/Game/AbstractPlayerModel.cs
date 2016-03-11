@@ -33,7 +33,6 @@ namespace FightClub.Game
         public int Hit { get; set; }
         public int Set { get { return (int)_block; } }
         public string Log { get; set; }
-        public int Win { get; set; }
         #endregion
 
         #region Methods
