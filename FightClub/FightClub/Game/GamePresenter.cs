@@ -22,7 +22,17 @@ namespace FightClub.Game
             this._npc = new Npc();
             this._view = view;
             _controller = new GameController(_playerModel, _npc);
-
+            Settings(_view);
+        }
+        public Presenter(IGame view,IPlayerModel player)
+        {
+            this._playerModel = player;
+            this._npc = new Npc();
+            this._view = view;
+            Settings(_view);
+        }
+        private void Settings(IGame view)
+        {
             _playerModel.Name = view.PlayerName;
             view.PlayerHp = _playerModel.Hp;
             _npc.Name = "Bot";
@@ -38,7 +48,6 @@ namespace FightClub.Game
             _npc.Wound += npc_Wound;
             view.Battle += view_Battle;
         }
-
         public void Difficulty()
         {
             switch (_view.Difficulty)
